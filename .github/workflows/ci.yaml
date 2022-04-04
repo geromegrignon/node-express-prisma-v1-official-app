@@ -58,6 +58,8 @@ jobs:
           CI: true
       - name: deploy database
         run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://localUser:localPassword@localhost:5432/test
       - name: run app
         run: npm start
         env:
