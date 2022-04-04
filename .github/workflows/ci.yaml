@@ -58,7 +58,9 @@ jobs:
           CI: true
       - name: run app
         run: npm run start
-      - name: postman
-        uses: gothinkster/realworld-api-action@v1.18
         env:
           DATABASE_URL: postgresql://localUser:localPassword@localhost:5432/test
+      - name: postman
+        uses: gothinkster/realworld-api-action@v1.18
+        with:
+          url: 'http://localhost:3000/api'
