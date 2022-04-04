@@ -3,7 +3,6 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
-import { generateFakeData } from './utils/cron';
 import HttpException from './models/http-exception.model';
 import swaggerDocument from '../docs/swagger.json';
 
@@ -43,8 +42,6 @@ app.use((err: Error | HttpException, req: Request, res: Response, next: NextFunc
     res.status(500).json(err.message);
   }
 });
-
-generateFakeData();
 
 /**
  * Server activation
