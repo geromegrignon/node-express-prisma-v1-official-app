@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [main, limited]
   pull_request:
@@ -10,10 +11,25 @@ on:
 jobs:
   run_tests:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
+        
+    services:
+      postgres:
+        image: postgres:12-alpine
+        env:
+          POSTGRES_USER: localUser
+          POSTGRES_PASSWORD: localPassword
+          POSTGRES_DB: test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
 
     steps:
       - uses: actions/checkout@v2
@@ -41,3 +57,9 @@ jobs:
         run: npm run test --ci --lastCommit --maxWorkers=50%
         env:
           CI: true
+      - name: run app
+        run: npm run start
+      - name: postman
+        uses: gothinkster/realworld-api-action@v1.18
+        env:
+          DATABASE_URL: postgresql://localUser:localPassword@localhost:5432/test
