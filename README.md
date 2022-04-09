@@ -28,7 +28,7 @@ npm install
 
 ### Create a server
 
-run **pgAdmin**
+run **pgAdmin** ffs
 create a server (Object/Create/Server)
 required fields:
 
