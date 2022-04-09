@@ -26,7 +26,7 @@ npm install
 
 [PostgreSQL](https://www.postgresql.org/download/) downloads page
 
-### Create a server
+### Create a server dfdd
 
 run **pgAdmin**
 create a server (Object/Create/Server)
