@@ -9,7 +9,7 @@
 
 # Getting startedccc
 
-### Clone the repository
+### Clone the repositoryfff
 
 run `git clone`
 
