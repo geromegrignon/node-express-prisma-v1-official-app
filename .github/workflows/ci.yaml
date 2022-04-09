@@ -61,9 +61,10 @@ jobs:
         env:
           DATABASE_URL: postgresql://localUser:localPassword@localhost:5432/test
       - name: postman
-        uses: gothinkster/realworld-api-action@v1.27
+        uses: gothinkster/realworld-api-action@v1.28
         with:
           start: npm start
           url: 'http://localhost:3000/api'
+          github-token: secrets.GITHUB_TOKEN
         env:
           DATABASE_URL: postgresql://localUser:localPassword@localhost:5432/test
