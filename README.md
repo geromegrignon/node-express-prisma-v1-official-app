@@ -3,7 +3,7 @@
 > This branch differs from the RealWorld API specs by including [limitations](https://gothinkster.github.io/realworld/docs/specs/frontend-specs/api#api-limitations) to public-created content.
 > We encourage you to use it if you plan to host this app publicly.
 
-# Deploy to Heroku
+# Deploy to Heroku test
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
